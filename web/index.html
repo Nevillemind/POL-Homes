@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peace of Life Homes — Recovery Residences in Richmond, Virginia</title>
+<meta name="description" content="Peace of Life Homes provides VARR-accredited, DBHDS-certified sober living residences in Richmond, Virginia. Safe, structured recovery housing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #3d3d3d; background: #fefdfb; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+nav { position: fixed; top: 0; width: 100%; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(254,253,251,0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: #2d2d2d; letter-spacing: 0.5px; }
+.nav-links a { color: #6b6b6b; text-decoration: none; margin-left: 36px; font-size: 13px; font-weight: 400; letter-spacing: 0.8px; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a:hover { color: #2d2d2d; }
+.nav-cta { background: #2d2d2d; color: #fff !important; padding: 10px 22px; font-size: 12px !important; letter-spacing: 1px; }
+.nav-cta:hover { background: #1a1a1a; color: #fff !important; }
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 40px 80px; background: linear-gradient(180deg, #fefdfb 0%, #f8f6f1 50%, #fefdfb 100%); }
+.brand-name { font-size: clamp(64px, 11vw, 110px); font-weight: 700; color: #2f855a; line-height: 1.05; letter-spacing: -1px; max-width: 900px; margin-bottom: 20px; }
+.tagline { font-size: clamp(28px, 4vw, 38px); color: #3d3d3d; max-width: 700px; line-height: 1.25; font-weight: 300; margin-bottom: 16px; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.tagline span { font-style: normal; color: #2f855a; }
+.hero-sub { font-size: 16px; color: #6b6b6b; max-width: 560px; line-height: 1.8; font-weight: 300; margin-bottom: 40px; }
+.hero-cta { display: inline-block; background: #1a1a1a; color: #fff; padding: 16px 40px; font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
+.hero-cta:hover { background: #3d3d3d; }
+.badges { display: flex; gap: 32px; margin-top: 60px; font-size: 12px; color: #8b8b8b; letter-spacing: 1px; text-transform: uppercase; font-weight: 400; }
+.badges span { padding-bottom: 6px; border-bottom: 2px solid #d4c9b8; }
+.section { padding: 120px 40px; max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #8b8b8b; margin-bottom: 16px; }
+.section h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 600; color: #1a1a1a; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 20px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.split-text p { margin-bottom: 24px; font-size: 16px; color: #6b6b6b; line-height: 1.8; font-weight: 300; }
+.image-box { width: 100%; aspect-ratio: 4/3; background: #e8e4dc; border-radius: 2px; overflow: hidden; }
+.image-box img { width: 100%; height: 100%; object-fit: cover; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 48px; }
+.three-col .item { padding: 40px 0 0; border-top: 2px solid #d4c9b8; }
+.three-col .item h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+.three-col .item p { font-size: 14px; color: #6b6b6b; line-height: 1.7; }
+.image-band { width: 100%; height: 400px; overflow: hidden; }
+.image-band img { width: 100%; height: 100%; object-fit: cover; }
+.quote-section { padding: 100px 40px; text-align: center; background: #f8f6f1; }
+.quote-section blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 36px); font-style: italic; font-weight: 500; color: #1a1a1a; max-width: 700px; margin: 0 auto; line-height: 1.4; }
+.quote-section cite { display: block; font-family: 'Inter', sans-serif; font-size: 13px; font-style: normal; color: #8b8b8b; margin-top: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.referral-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+.referral-card { background: #fff; padding: 40px 32px; border: 1px solid #e8e4dc; transition: border-color 0.3s; }
+.referral-card:hover { border-color: #c4b8a6; }
+.referral-card .num { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: #d4c9b8; margin-bottom: 12px; }
+.referral-card h4 { font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 10px; }
+.referral-card p { font-size: 14px; color: #6b6b6b; line-height: 1.7; }
+.alt-bg { background: #f8f6f1; }
+.contact-section { text-align: center; padding: 120px 40px; background: #1a1a1a; color: #fff; }
+.contact-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 600; color: #fff; margin-bottom: 16px; }
+.contact-section p { color: #9b9b9b; font-size: 16px; font-weight: 300; max-width: 500px; margin: 0 auto 32px; }
+.contact-form { max-width: 520px; margin: 0 auto; }
+.contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-family: 'Inter',sans-serif; font-size: 14px; border-radius: 2px; outline: none; transition: border-color 0.3s; }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: rgba(255,255,255,0.4); }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #6b6b6b; }
+.contact-form select { color: #6b6b6b; }
+.contact-form select option { color: #1a1a1a; background: #fff; }
+.contact-form textarea { resize: vertical; min-height: 100px; margin-bottom: 12px; }
+.contact-form button { width: 100%; padding: 16px; background: #fff; color: #1a1a1a; border: none; font-family: 'Inter',sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
+.contact-form button:hover { background: #e8e4dc; }
+.form-note { font-size: 11px; color: #6b6b6b; margin-top: 12px; letter-spacing: 0.5px; }
+footer { padding: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #8b8b8b; border-top: 1px solid #e8e4dc; }
+footer a { color: #8b8b8b; text-decoration: none; margin-left: 24px; }
+footer a:hover { color: #1a1a1a; }
+@media (max-width: 768px) { nav { padding: 14px 20px; flex-wrap: wrap; gap: 10px; } .nav-links a { margin-left: 16px; font-size: 11px; } .hero { padding: 100px 20px 60px; } .brand-name { font-size: 40px; } .tagline { font-size: 24px; } .section { padding: 80px 20px; } .split, .three-col, .referral-grid { grid-template-columns: 1fr; gap: 24px; } .image-band { height: 240px; } footer { flex-direction: column; gap: 12px; text-align: center; } }
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-logo">Peace of Life Homes</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#homes">Our Homes</a>
+<a href="#residents">Residents</a>
+<a href="#referrals">Referrals</a>
+<a href="#contact" class="nav-cta">Inquire</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1 class="brand-name">Peace of Life Homes</h1>
+<p class="tagline">A place of <span>peace.</span> A foundation for <span>life.</span></p>
+<p class="hero-sub">Safe, structured recovery residences for individuals building a new foundation — in homes designed for dignity, community, and lasting change.</p>
+<a href="#contact" class="hero-cta">Inquire About Availability</a>
+<div class="badges">
+<span>VARR Accredited</span>
+<span>DBHDS Certified</span>
+<span>Level II Recovery Residence</span>
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="section-label">Our Philosophy</div>
+<div class="split">
+<div class="split-text">
+<h2>Recovery happens in community — not in isolation.</h2>
+<p>Peace of Life Homes is not a treatment center. We are recovery residences — real homes in real neighborhoods — where individuals in recovery find the structure, accountability, and peer support that make lasting sobriety possible.</p>
+<p>Every home is alcohol and drug-free. Every resident shares in the responsibility of maintaining a clean, respectful, and supportive household. We believe that dignity, stability, and connection are the foundation of recovery.</p>
+</div>
+<div class="image-box">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85" alt="Warm welcoming suburban home with lush lawn and mature trees" loading="lazy">
+</div>
+</div>
+</section>
+
+<div class="image-band" style="margin-top:0;">
+<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1600&q=85" alt="Peaceful home exterior with warm glowing windows at dusk" loading="lazy">
+</div>
+
+<section class="section" id="homes">
+<div class="section-label">Our Homes</div>
+<h2>Designed for dignity. Built for recovery.</h2>
+<div class="three-col">
+<div class="item"><h4>Private &amp; Shared Accommodations</h4><p>Well-appointed rooms in single-family homes throughout Richmond. Every residence is fully furnished, with shared living spaces, modern kitchens, and outdoor areas for reflection and community.</p></div>
+<div class="item"><h4>Safety Without Compromise</h4><p>Keypad entry with individual access codes, exterior surveillance, motion-sensor lighting, and enforced curfew. Residents and families can trust that security is never an afterthought.</p></div>
+<div class="item"><h4>Structure That Supports Recovery</h4><p>Weekly house meetings led by an on-site house manager, shared chores and responsibilities, clear expectations, and a zero-tolerance policy for alcohol and drug use create accountability that sticks.</p></div>
+</div>
+</section>
+
+<section class="section alt-bg" id="residents" style="max-width:100%; padding:120px 40px;">
+<div style="max-width:1100px; margin:0 auto;">
+<div class="section-label">Who We Serve</div>
+<h2>A home for every step of the journey.</h2>
+<div class="three-col" style="margin-top:48px;">
+<div class="item"><h4>Transitioning from Treatment</h4><p>For individuals stepping down from inpatient or clinical programs, our residences provide the bridge between intensive care and independent living — with the structure to make the transition successful.</p></div>
+<div class="item"><h4>Building a Foundation</h4><p>For those already on their recovery path who need a stable, substance-free environment to continue growing. Peer support, accountability, and community make the difference.</p></div>
+<div class="item"><h4>Seeking a Clean Living Environment</h4><p>No formal program enrollment required. If you simply want to live in a safe, structured, alcohol and drug-free home, you are welcome here.</p></div>
+</div>
+</div>
+</section>
+
+<section class="quote-section">
+<blockquote>"The right environment changes everything. At Peace of Life Homes, I found more than a roof — I found a foundation I could build on."</blockquote>
+<cite>— Peace of Life Homes Resident</cite>
+</section>
+
+<section class="section" id="referrals">
+<div class="section-label">Referral Partners</div>
+<h2>Working together to support recovery in Virginia.</h2>
+<div class="referral-grid">
+<div class="referral-card"><div class="num">01</div><h4>Treatment Providers</h4><p>A safe, structured step-down environment for your clients. We maintain communication with your clinical team throughout their stay, ensuring continuity of care.</p></div>
+<div class="referral-card"><div class="num">02</div><h4>Courts &amp; Legal Professionals</h4><p>VARR-accredited housing that meets court-ordered sober living requirements. Individual keypad codes and entry logs provide verifiable compliance documentation.</p></div>
+<div class="referral-card"><div class="num">03</div><h4>CSBs &amp; Community Organizations</h4><p>DBHDS-certified partner in the RBHA network. We accept referrals through DBHDS WebGrants and SOR-funded programming throughout Virginia.</p></div>
+</div>
+</section>
+
+<section class="contact-section" id="contact">
+<h2>Begin the conversation.</h2>
+<p>Contact us for availability, to schedule a visit, or to start the intake process. We respond to all inquiries within 24 hours.</p>
+<div class="contact-form">
+<form action="https://formsubmit.co/info@peaceoflifehomes.com" method="POST">
+<div class="form-row">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email Address" required>
+</div>
+<div class="form-row">
+<input type="tel" name="phone" placeholder="Phone Number">
+<select name="inquiry_type">
+<option value="">Inquiry Type</option>
+<option value="resident">Seeking Residence</option>
+<option value="family">Family Member Inquiry</option>
+<option value="referral">Referral Partner</option>
+<option value="other">Other</option>
+</select>
+</div>
+<textarea name="message" placeholder="Tell us about your situation and what you're looking for..." rows="4"></textarea>
+<button type="submit">Submit Inquiry</button>
+</form>
+<p class="form-note">Your information is confidential and will never be shared.</p>
+</div>
+</section>
+
+<footer>
+<div>2026 Peace of Life Homes. All rights reserved. Richmond, Virginia.</div>
+<div><a href="#">Privacy</a> <a href="#">Terms</a></div>
+</footer>
+</body>
+</html>
