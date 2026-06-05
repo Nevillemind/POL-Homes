@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1a1a1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="POL Homes">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>POL Homes — Resident Portal</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',-apple-system,sans-serif;background:#1a1a1a;color:#e8e4dc;min-height:100dvh;padding-bottom:env(safe-area-inset-bottom,20px)}
+body.safari-standalone{padding-top:env(safe-area-inset-top,0)}
+
+.header{position:sticky;top:0;z-index:10;background:rgba(26,26,26,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.header-brand{display:flex;align-items:center;gap:10px}
+.header-logo{width:36px;height:36px;border-radius:50%;background:#2a3a2e;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#e8e4dc}
+.header-title h1{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#e8e4dc;line-height:1.1}
+.header-title span{font-size:11px;color:#7a8a7d;font-weight:300;letter-spacing:0.5px}
+.header-avatar{width:40px;height:40px;border-radius:50%;background:#2a3a2e;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:#7a8a7d;border:1px solid rgba(255,255,255,0.08)}
+
+.welcome{padding:24px 20px 8px}
+.welcome h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#e8e4dc;margin-bottom:4px}
+.welcome p{font-size:13px;color:#7a8a7d;font-weight:300}
+
+.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 20px}
+.action-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 16px;cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.action-card:active{background:rgba(255,255,255,0.08);transform:scale(0.98)}
+.action-icon{font-size:28px}
+.action-label{font-size:12px;font-weight:500;color:#e8e4dc;letter-spacing:0.3px}
+.action-sub{font-size:10px;color:#7a8a7d;font-weight:300}
+
+.section{padding:20px}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#e8e4dc}
+.section-link{font-size:11px;color:#7a8a7d;text-decoration:none;font-weight:400}
+
+.today-check{border-radius:12px;overflow:hidden}
+.today-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px}
+.today-row:last-child{border-bottom:none}
+.today-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.today-dot.done{background:#4a7c59}
+.today-dot.pending{background:rgba(255,255,255,0.15)}
+.today-info{flex:1}
+.today-title{font-weight:500;color:#e8e4dc;margin-bottom:2px}
+.today-meta{font-size:11px;color:#7a8a7d}
+.today-badge{font-size:10px;padding:4px 10px;border-radius:20px;font-weight:500;flex-shrink:0}
+.today-badge.done{background:rgba(74,124,89,0.15);color:#4a7c59}
+.today-badge.pending{background:rgba(255,255,255,0.06);color:#9b9b9b}
+
+.chores-list{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow:hidden}
+.chore-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.chore-item:last-child{border-bottom:none}
+.chore-check{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s}
+.chore-check.done{background:#4a7c59;border-color:#4a7c59}
+.chore-check.done::after{content:'✓';font-size:12px;color:#fff;font-weight:700}
+.chore-info{flex:1}
+.chore-name{font-size:13px;font-weight:500;color:#e8e4dc}
+.chore-who{font-size:10px;color:#7a8a7d;margin-top:1px}
+
+.announce-card{background:rgba(74,124,89,0.08);border:1px solid rgba(74,124,89,0.15);border-radius:12px;padding:16px;margin-bottom:8px}
+.announce-date{font-size:10px;color:#7a8a7d;font-weight:400;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.announce-text{font-size:13px;color:#e8e4dc;line-height:1.5;font-weight:400}
+
+.empty-state{text-align:center;padding:40px 20px}
+.empty-icon{font-size:40px;margin-bottom:12px;opacity:0.5}
+.empty-text{font-size:13px;color:#7a8a7d;font-weight:300}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;display:flex;align-items:flex-end;justify-content:center;padding:20px;display:none}
+.modal-overlay.active{display:flex}
+.modal-sheet{background:#1e1e1e;border-radius:20px 20px 0 0;width:100%;max-width:500px;max-height:85dvh;overflow-y:auto;padding:24px 20px 40px}
+.modal-handle{width:36px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin:0 auto 20px}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#e8e4dc;margin-bottom:16px}
+.modal-field{margin-bottom:16px}
+.modal-label{font-size:11px;color:#9b9b9b;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;display:block}
+.modal-input,.modal-select,.modal-textarea{width:100%;padding:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#e8e4dc;font-family:'Inter',sans-serif;font-size:14px;border-radius:8px;outline:none}
+.modal-input:focus,.modal-select:focus,.modal-textarea:focus{border-color:rgba(74,124,89,0.4)}
+.modal-textarea{min-height:80px;resize:vertical}
+.modal-select{appearance:none;-webkit-appearance:none}
+.modal-btn{width:100%;padding:16px;background:#4a7c59;color:#fff;border:none;border-radius:10px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:background 0.2s;letter-spacing:0.3px}
+.modal-btn:active{background:#3d6a4b}
+.modal-btn.secondary{background:rgba(255,255,255,0.08);color:#e8e4dc;margin-top:8px}
+
+.tab-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(26,26,26,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);display:flex;padding:8px 0 env(safe-area-inset-bottom,16px);z-index:10}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px;cursor:pointer;color:#7a8a7d;font-size:10px;transition:color 0.2s;background:none;border:none}
+.tab-item.active{color:#4a7c59}
+.tab-icon{font-size:22px}
+.tab-label{font-size:10px;font-weight:500;letter-spacing:0.3px}
+
+.page{display:none;padding-bottom:80px}
+.page.active{display:block}
+
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#4a7c59;color:#fff;padding:12px 24px;border-radius:10px;font-size:13px;font-weight:500;z-index:200;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<header class="header">
+  <div class="header-brand">
+    <div class="header-logo">P</div>
+    <div class="header-title">
+      <h1>Peace of Life</h1>
+      <span>Recovery Residence</span>
+    </div>
+  </div>
+  <div class="header-avatar" id="residentInitials">JS</div>
+</header>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="welcome">
+    <h2>Welcome back</h2>
+    <p id="greeting">Today is a new day.</p>
+  </div>
+
+  <div class="quick-actions">
+    <div class="action-card" onclick="openCheckIn()">
+      <div class="action-icon">☀️</div>
+      <div class="action-label">Daily Check-In</div>
+      <div class="action-sub">Confirm sobriety</div>
+    </div>
+    <div class="action-card" onclick="openMeetingLog()">
+      <div class="action-icon">🤝</div>
+      <div class="action-label">Log Meeting</div>
+      <div class="action-sub">AA / NA / Group</div>
+    </div>
+    <div class="action-card" onclick="openMaintenance()">
+      <div class="action-icon">🔧</div>
+      <div class="action-label">Report Issue</div>
+      <div class="action-sub">Maintenance</div>
+    </div>
+    <div class="action-card" onclick="switchTab('docs')">
+      <div class="action-icon">📄</div>
+      <div class="action-label">Documents</div>
+      <div class="action-sub">House rules & more</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h3 class="section-title">Today's Schedule</h3>
+    </div>
+    <div class="today-check" id="todaySchedule">
+      <div class="today-row"><div class="today-dot pending"></div><div class="today-info"><div class="today-title">Morning Check-In</div><div class="today-meta">Before 10 AM</div></div><div class="today-badge pending">Pending</div></div>
+      <div class="today-row"><div class="today-dot pending"></div><div class="today-info"><div class="today-title">Meeting Attendance</div><div class="today-meta">At least 1 today</div></div><div class="today-badge pending">Pending</div></div>
+      <div class="today-row"><div class="today-dot pending"></div><div class="today-info"><div class="today-title">Chore: Kitchen Cleanup</div><div class="today-meta">After dinner</div></div><div class="today-badge pending">Pending</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h3 class="section-title">Announcements</h3>
+    </div>
+    <div class="announce-card">
+      <div class="announce-date">June 5, 2026</div>
+      <div class="announce-text">House meeting this Sunday at 6 PM. All residents required to attend. We'll be reviewing chore rotations and upcoming maintenance.</div>
+    </div>
+    <div class="announce-card">
+      <div class="announce-date">June 3, 2026</div>
+      <div class="announce-text">Welcome to all new residents. Please review the house rules document in the Documents section and sign if you haven't already.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHORES PAGE -->
+<div class="page" id="page-chores">
+  <div class="section">
+    <div class="section-header"><h3 class="section-title">This Week's Chores</h3></div>
+    <div class="chores-list">
+      <div class="chore-item" onclick="toggleChore(this)"><div class="chore-check"></div><div class="chore-info"><div class="chore-name">Kitchen — Dishes & Counters</div><div class="chore-who">Assigned: You • Daily</div></div></div>
+      <div class="chore-item" onclick="toggleChore(this)"><div class="chore-check done"></div><div class="chore-info"><div class="chore-name">Trash & Recycling</div><div class="chore-who">Assigned: You • Tue/Fri</div></div></div>
+      <div class="chore-item" onclick="toggleChore(this)"><div class="chore-check"></div><div class="chore-info"><div class="chore-name">Living Room — Vacuum & Tidy</div><div class="chore-who">Assigned: You • Weekly</div></div></div>
+      <div class="chore-item" onclick="toggleChore(this)"><div class="chore-check"></div><div class="chore-info"><div class="chore-name">Bathroom — Clean & Stock</div><div class="chore-who">Assigned: You • Weekly</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DOCS PAGE -->
+<div class="page" id="page-docs">
+  <div class="section">
+    <div class="section-header"><h3 class="section-title">House Documents</h3></div>
+    <div class="chores-list">
+      <div class="chore-item" onclick="openDoc('rules')"><div class="chore-info"><div class="chore-name">House Rules & Policies</div><div class="chore-who">Signed agreement required</div></div><span style="color:#7a8a7d;font-size:12px">→</span></div>
+      <div class="chore-item" onclick="openDoc('resident')"><div class="chore-info"><div class="chore-name">Resident Agreement</div><div class="chore-who">Signed agreement required</div></div><span style="color:#7a8a7d;font-size:12px">→</span></div>
+      <div class="chore-item" onclick="openDoc('application')"><div class="chore-info"><div class="chore-name">Application Form</div><div class="chore-who">For new residents</div></div><span style="color:#7a8a7d;font-size:12px">→</span></div>
+      <div class="chore-item" onclick="openDoc('grievance')"><div class="chore-info"><div class="chore-name">Grievance Policy</div><div class="chore-who">VARR compliant</div></div><span style="color:#7a8a7d;font-size:12px">→</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE PAGE -->
+<div class="page" id="page-profile">
+  <div class="section">
+    <div class="section-header"><h3 class="section-title">My Profile</h3></div>
+    <div style="text-align:center;padding:20px 0">
+      <div style="width:80px;height:80px;border-radius:50%;background:#2a3a2e;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:600;color:#7a8a7d;border:2px solid rgba(255,255,255,0.08)" id="profileAvatar">JS</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#e8e4dc;margin-bottom:4px">John Smith</div>
+      <div style="font-size:12px;color:#7a8a7d">Room 3, Bed B • Since June 2026</div>
+    </div>
+    <div class="chores-list">
+      <div class="chore-item"><div class="chore-info"><div class="chore-name">Rent Status</div><div class="chore-who">Current month: Paid</div></div><span style="color:#4a7c59;font-size:12px">✓</span></div>
+      <div class="chore-item"><div class="chore-info"><div class="chore-name">Sobriety Date</div><div class="chore-who">March 15, 2026</div></div></div>
+      <div class="chore-item"><div class="chore-info"><div class="chore-name">Meetings This Week</div><div class="chore-who">4 of 5 completed</div></div></div>
+      <div class="chore-item" onclick="openMaintenance()"><div class="chore-info"><div class="chore-name">Contact House Manager</div><div class="chore-who">Report issue or concern</div></div><span style="color:#7a8a7d;font-size:12px">→</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECK-IN MODAL -->
+<div class="modal-overlay" id="modal-checkin">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Daily Check-In</div>
+    <div class="modal-field"><label class="modal-label">How are you feeling today?</label><select class="modal-select" id="checkinMood"><option value="">Select…</option><option>Great — feeling strong</option><option>Good — steady</option><option>Okay — some challenges</option><option>Struggling — need support</option></select></div>
+    <div class="modal-field"><label class="modal-label">Any concerns to share?</label><textarea class="modal-textarea" id="checkinNotes" placeholder="Optional — share anything on your mind…"></textarea></div>
+    <button class="modal-btn" onclick="submitCheckIn()">Confirm Check-In — I Am Sober Today</button>
+    <button class="modal-btn secondary" onclick="closeModal('modal-checkin')">Cancel</button>
+  </div>
+</div>
+
+<!-- MEETING LOG MODAL -->
+<div class="modal-overlay" id="modal-meeting">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Log a Meeting</div>
+    <div class="modal-field"><label class="modal-label">Meeting Type</label><select class="modal-select" id="meetingType"><option value="">Select…</option><option>AA</option><option>NA</option><option>SMART Recovery</option><option>Celebrate Recovery</option><option>Other 12-Step</option><option>Group Therapy</option></select></div>
+    <div class="modal-field"><label class="modal-label">Location / Group Name</label><input class="modal-input" id="meetingLocation" placeholder="e.g. Richmond Recovery Group"></div>
+    <div class="modal-field"><label class="modal-label">Notes (optional)</label><textarea class="modal-textarea" id="meetingNotes" placeholder="Share anything meaningful from the meeting…"></textarea></div>
+    <button class="modal-btn" onclick="submitMeeting()">Log Meeting Attendance</button>
+    <button class="modal-btn secondary" onclick="closeModal('modal-meeting')">Cancel</button>
+  </div>
+</div>
+
+<!-- MAINTENANCE MODAL -->
+<div class="modal-overlay" id="modal-maintenance">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Report Maintenance Issue</div>
+    <div class="modal-field"><label class="modal-label">What needs attention?</label><select class="modal-select" id="maintType"><option value="">Select…</option><option>Plumbing</option><option>Electrical</option><option>Appliance</option><option>HVAC / Temperature</option><option>Lock / Security</option><option>Pest Control</option><option>Cleaning / Sanitation</option><option>Other</option></select></div>
+    <div class="modal-field"><label class="modal-label">Describe the issue</label><textarea class="modal-textarea" id="maintDesc" placeholder="Please be specific — what's wrong and where?"></textarea></div>
+    <div class="modal-field"><label class="modal-label">How urgent is this?</label><select class="modal-select" id="maintUrgency"><option value="">Select…</option><option>Low — whenever possible</option><option>Medium — this week</option><option>High — as soon as possible</option><option>Emergency — right now</option></select></div>
+    <button class="modal-btn" onclick="submitMaintenance()">Submit Report</button>
+    <button class="modal-btn secondary" onclick="closeModal('modal-maintenance')">Cancel</button>
+  </div>
+</div>
+
+<!-- BOTTOM TAB BAR -->
+<nav class="tab-bar">
+  <button class="tab-item active" onclick="switchTab('home')"><span class="tab-icon">🏠</span><span class="tab-label">Home</span></button>
+  <button class="tab-item" onclick="switchTab('chores')"><span class="tab-icon">📋</span><span class="tab-label">Chores</span></button>
+  <button class="tab-item" onclick="switchTab('docs')"><span class="tab-icon">📄</span><span class="tab-label">Docs</span></button>
+  <button class="tab-item" onclick="switchTab('profile')"><span class="tab-icon">👤</span><span class="tab-label">Profile</span></button>
+</nav>
+
+<script>
+function switchTab(tab){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-item').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+tab).classList.add('active');
+  event.target.closest('.tab-item')?.classList.add('active');
+  if(!event.target.closest('.tab-item')){
+    document.querySelectorAll('.tab-item').forEach(t=>{if(t.textContent.trim().toLowerCase().includes(tab)||t.querySelector('.tab-label')?.textContent.trim().toLowerCase().includes(tab))t.classList.add('active')});
+  }
+}
+
+function openModal(id){document.getElementById(id).classList.add('active')}
+function closeModal(id){document.getElementById(id).classList.remove('active')}
+function openCheckIn(){openModal('modal-checkin')}
+function openMeetingLog(){openModal('modal-meeting')}
+function openMaintenance(){openModal('modal-maintenance')}
+
+function openDoc(type){
+  if(type==='rules') window.open('https://peaceoflifehomes.com','_blank');
+  if(type==='resident') window.open('https://peaceoflifehomes.com','_blank');
+  if(type==='application') window.open('https://peaceoflifehomes.com','_blank');
+  if(type==='grievance') window.open('https://peaceoflifehomes.com','_blank');
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+function toggleChore(el){
+  const check=el.querySelector('.chore-check');
+  check.classList.toggle('done');
+}
+
+function submitCheckIn(){
+  closeModal('modal-checkin');
+  showToast('✓ Check-in confirmed. Stay strong.');
+  document.querySelectorAll('.today-row')[0].querySelector('.today-dot').classList.replace('pending','done');
+  document.querySelectorAll('.today-row')[0].querySelector('.today-badge').classList.replace('pending','done');
+  document.querySelectorAll('.today-row')[0].querySelector('.today-badge').textContent='Done';
+}
+
+function submitMeeting(){
+  closeModal('modal-meeting');
+  showToast('✓ Meeting logged. Keep showing up.');
+  document.querySelectorAll('.today-row')[1].querySelector('.today-dot').classList.replace('pending','done');
+  document.querySelectorAll('.today-row')[1].querySelector('.today-badge').classList.replace('pending','done');
+  document.querySelectorAll('.today-row')[1].querySelector('.today-badge').textContent='Done';
+}
+
+function submitMaintenance(){
+  closeModal('modal-maintenance');
+  showToast('✓ Report submitted. We'll address it soon.');
+}
+
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+
+const greets=['Today is a new day.','One day at a time.','Stay strong, stay focused.','You belong here.','Progress, not perfection.','Keep moving forward.'];
+document.getElementById('greeting').textContent=greets[Math.floor(Math.random()*greets.length)];
+</script>
+</body>
+</html>
