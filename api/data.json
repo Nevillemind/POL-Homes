@@ -1,0 +1,60 @@
+{
+  "resident": {
+    "name": "John Smith",
+    "initials": "JS",
+    "room": "Room 3, Bed B",
+    "since": "June 2026",
+    "rent": "Paid",
+    "sobrietyDate": "March 15, 2026"
+  },
+  "announcements": [
+    {
+      "date": "June 5, 2026",
+      "text": "House meeting this Sunday at 6 PM. All residents required to attend. We'll be reviewing chore rotations and upcoming maintenance."
+    },
+    {
+      "date": "June 3, 2026",
+      "text": "Welcome to all new residents. Please review the house rules document in the Documents section and sign if you haven't already."
+    }
+  ],
+  "chores": [
+    {
+      "id": 1,
+      "name": "Kitchen \u2014 Dishes & Counters",
+      "who": "You",
+      "frequency": "Daily",
+      "done": false
+    },
+    {
+      "id": 2,
+      "name": "Trash & Recycling",
+      "who": "You",
+      "frequency": "Tue/Fri",
+      "done": false
+    },
+    {
+      "id": 3,
+      "name": "Living Room \u2014 Vacuum & Tidy",
+      "who": "You",
+      "frequency": "Weekly",
+      "done": false
+    },
+    {
+      "id": 4,
+      "name": "Bathroom \u2014 Clean & Stock",
+      "who": "You",
+      "frequency": "Weekly",
+      "done": false
+    }
+  ],
+  "checkins": [
+    {
+      "date": "2026-06-05",
+      "mood": "Great",
+      "notes": "test",
+      "time": "19:02"
+    }
+  ],
+  "meetings": [],
+  "maintenance": []
+}
