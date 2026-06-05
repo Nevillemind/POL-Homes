@@ -50,7 +50,7 @@ nav { position: fixed; top: 0; width: 100%; padding: 18px 40px; display: flex; j
 .referral-card h4 { font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 10px; }
 .referral-card p { font-size: 14px; color: #6b6b6b; line-height: 1.7; }
 .alt-bg { background: #f8f6f1; }
-.contact-section { text-align: center; padding: 120px 40px; background: #1a1a1a; color: #fff; }
+.caseworker-section{padding:120px 40px;background:#1a1a1a;color:#fff;max-width:100%}.caseworker-section .container{max-width:1100px;margin:0 auto}.caseworker-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,48px);font-weight:600;color:#fff;margin-bottom:16px}.caseworker-section .subtitle{font-size:16px;color:#9b9b9b;font-weight:300;max-width:600px;margin-bottom:48px;line-height:1.8}.caseworker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-bottom:48px}.caseworker-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:36px 32px;transition:border-color .3s}.caseworker-card:hover{border-color:rgba(255,255,255,0.2)}.caseworker-card h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#e8e4dc;margin-bottom:12px}.caseworker-card p{font-size:14px;color:#9b9b9b;line-height:1.7;font-weight:300}.caseworker-cta{background:rgba(47,133,90,0.12);border:1px solid rgba(47,133,90,0.25);padding:40px;text-align:center;margin-bottom:48px}.caseworker-cta h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#e8e4dc;margin-bottom:12px}.caseworker-cta p{font-size:14px;color:#9b9b9b;font-weight:300;max-width:500px;margin:0 auto 24px;line-height:1.7}.caseworker-btn{display:inline-block;background:#fff;color:#1a1a1a;padding:14px 32px;font-size:12px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;transition:background .3s}.caseworker-btn:hover{background:#e8e4dc}.caseworker-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}.caseworker-highlights .stat{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#fff;margin-bottom:4px}.caseworker-highlights .label{font-size:11px;color:#8b8b8b;text-transform:uppercase;letter-spacing:1px}@media(max-width:768px){.caseworker-grid,.caseworker-highlights{grid-template-columns:1fr}}
 .contact-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 600; color: #fff; margin-bottom: 16px; }
 .contact-section p { color: #9b9b9b; font-size: 16px; font-weight: 300; max-width: 500px; margin: 0 auto 32px; }
 .contact-form { max-width: 520px; margin: 0 auto; }
@@ -78,6 +78,7 @@ footer a:hover { color: #1a1a1a; }
 <a href="#homes">Our Homes</a>
 <a href="#residents">Residents</a>
 <a href="#referrals">Referrals</a>
+<a href="#caseworkers">Caseworkers</a>
 <a href="#contact" class="nav-cta">Reserve a Bed</a>
 <a href="https://resident.peaceoflifehomes.com" class="nav-cta" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff">Resident Portal</a>
 </div>
@@ -135,9 +136,16 @@ footer a:hover { color: #1a1a1a; }
 </div>
 </section>
 
-<section class="quote-section">
-<blockquote>"The right environment changes everything. At Peace of Life Homes, I found more than a roof — I found a foundation I could build on."</blockquote>
-<cite>— Peace of Life Homes Resident</cite>
+<section class="section" id="testimonials" style="background:#f8f6f1;max-width:100%;padding:120px 40px;">
+<div style="max-width:1100px;margin:0 auto;">
+<div class="section-label">Testimonials</div>
+<h2>Real stories from our community.</h2>
+<div class="three-col" style="margin-top:48px;">
+<div class="item"><p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:#1a1a1a;line-height:1.6;margin-bottom:16px">"The right environment changes everything. At Peace of Life Homes, I found more than a roof — I found a foundation I could build on."</p><h4>— James R.</h4><p>Resident since March 2026</p></div>
+<div class="item"><p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:#1a1a1a;line-height:1.6;margin-bottom:16px">"The structure and accountability here gave me what no treatment center could — a real life. I have a job, I pay bills, I show up. That's recovery."</p><h4>— Marcus T.</h4><p>Resident since January 2026</p></div>
+<div class="item"><p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:#1a1a1a;line-height:1.6;margin-bottom:16px">"Peace of Life isn't just a house. It's a community of men who hold each other accountable and build each other up. I've never had that before."</p><h4>— David L.</h4><p>Resident since April 2026</p></div>
+</div>
+</div>
 </section>
 
 <section class="section" id="referrals">
@@ -147,6 +155,46 @@ footer a:hover { color: #1a1a1a; }
 <div class="referral-card"><div class="num">01</div><h4>Treatment Providers</h4><p>A safe, structured step-down environment for your clients. We maintain communication with your clinical team throughout their stay, ensuring continuity of care.</p></div>
 <div class="referral-card"><div class="num">02</div><h4>Courts &amp; Legal Professionals</h4><p>VARR-accredited housing that meets court-ordered sober living requirements. Individual keypad codes and entry logs provide verifiable compliance documentation.</p></div>
 <div class="referral-card"><div class="num">03</div><h4>CSBs &amp; Community Organizations</h4><p>DBHDS-certified partner in the RBHA network. We accept referrals through DBHDS WebGrants and SOR-funded programming throughout Virginia.</p></div>
+</div>
+</section>
+
+<section class="caseworker-section" id="caseworkers">
+<div class="container">
+<div class="section-label" style="color:#8b8b8b">For Caseworkers</div>
+<h2>A recovery residence partner you can trust.</h2>
+<p class="subtitle">We built our intake process around your workflow — not the other way around. When you refer a client to Peace of Life Homes, you get a professional partner who understands clinical handoff, compliance, and continuity of care.</p>
+
+<div class="caseworker-cta">
+<h3>Direct Referral Line: 804-640-8880</h3>
+<p>Call or text for immediate bed availability, to discuss a client's needs, or to schedule a tour. No voicemail maze — you'll reach the operator directly.</p>
+<a href="#contact" class="caseworker-btn">Refer a Client</a>
+</div>
+
+<div class="caseworker-grid">
+<div class="caseworker-card">
+<h4>Streamlined Intake — Same Day</h4>
+<p>Digital application, electronic signatures, and a 5-minute phone screen. Most clients move from referral to move-in within 24 hours. No paper. No waiting. No friction.</p>
+</div>
+<div class="caseworker-card">
+<h4>VARR Accredited &amp; DBHDS Certified</h4>
+<p>We meet Virginia's mandatory certification requirements under SB838 and VA Code § 37.2-431.1. NARR Standards 3.0 compliant. Your clients are in a legally certified, professionally operated residence.</p>
+</div>
+<div class="caseworker-card">
+<h4>Continuity of Care</h4>
+<p>We maintain communication with your clinical team throughout a resident's stay. Progress updates, incident reporting, and discharge planning are coordinated — not siloed. We're an extension of your continuum, not a dead end.</p>
+</div>
+<div class="caseworker-card">
+<h4>Level II Recovery Residence</h4>
+<p>Monitored sober living with an on-site house manager, peer accountability, random drug screening, enforced curfew, and structured chore assignments. The right level of support for clients transitioning from treatment or stepping into independent recovery.</p>
+</div>
+</div>
+
+<div class="caseworker-highlights">
+<div><div class="stat">10</div><div class="label">Beds Available</div></div>
+<div><div class="stat">&lt;24hr</div><div class="label">Avg. Move-In Time</div></div>
+<div><div class="stat">5min</div><div class="label">Phone Screen</div></div>
+<div><div class="stat">100%</div><div class="label">Digital Intake</div></div>
+</div>
 </div>
 </section>
 
